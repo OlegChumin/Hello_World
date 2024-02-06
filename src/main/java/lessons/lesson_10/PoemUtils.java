@@ -28,6 +28,7 @@ public class PoemUtils {
 
     /**
      * Метод для записи текста в файл
+     *
      * @param text
      * @param filePath
      */
@@ -44,15 +45,16 @@ public class PoemUtils {
 
     /**
      * Метод считывает текст из файла
+     *
      * @param filePath
      * @return
      */
     public static String readTextFromFile(String filePath) {
-        StringBuilder text =  new StringBuilder();
+        StringBuilder text = new StringBuilder();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
             String line;
-            while((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 text.append(line).append("\n");
             }
             bufferedReader.close();
