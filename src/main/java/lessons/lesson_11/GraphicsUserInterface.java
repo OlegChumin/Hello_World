@@ -22,12 +22,21 @@ public class GraphicsUserInterface extends JFrame { // Наследуем кла
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JButton playButton = new JButton("PLAY");
-        JButton stopButton = new JButton("STOP");
+        JButton rewindButton = new JButton("REWIND");
+        JButton stopButton = new JButton("STOP"); //
 
         playButton.addMouseListener( // Добавляем слушателя событий мыши к кнопке "Play"
                 new MouseAdapter() { // implements MouseListener
                     public void mouseEntered(MouseEvent event) { // Метод вызывается при наведении курсора на кнопку
                         playButton.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Меняем курсор на руку
+                    }
+                }
+        );
+
+        rewindButton.addMouseListener( // Добавляем слушателя событий мыши к кнопке "REWIND"
+                new MouseAdapter() { // implements MouseListener
+                    public void mouseEntered(MouseEvent event) { // Метод вызывается при наведении курсора на кнопку
+                        rewindButton.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Меняем курсор на руку
                     }
                 }
         );
@@ -41,10 +50,12 @@ public class GraphicsUserInterface extends JFrame { // Наследуем кла
         );
 
         playButton.addActionListener(e -> mp3Player.play()); // Добавляем слушателя нажатий на кнопку "Play"
+        rewindButton.addActionListener(e -> mp3Player.stop()); // Добавляем слушателя нажатий на кнопку "REWIND"
         stopButton.addActionListener(e -> mp3Player.stop()); // Добавляем слушателя нажатий на кнопку "Stop"
 
         JPanel jPanel = new JPanel();
         jPanel.add(playButton);
+        jPanel.add(rewindButton);
         jPanel.add(stopButton);
 
         add(jPanel);
