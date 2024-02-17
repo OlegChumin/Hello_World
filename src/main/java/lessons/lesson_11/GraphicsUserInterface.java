@@ -8,11 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GraphicsUserInterface extends JFrame { // Наследуем класс от JFrame для создания оконного приложения
-    private Mp3Player mp3Player; // Объявляем переменную для работы с mp3 плеером
+    private final Mp3Player MP3_PLAYER; // Объявляем переменную для работы с mp3 плеером
 
     public GraphicsUserInterface() { // Конструктор класса
         super("Mp3 Graphics Music Player"); // Вызываем конструктор базового класса JFrame, устанавливая заголовок окна
-        mp3Player = new Mp3Player("src/main/resources/Dj Power - Popcorn.mp3");
+        MP3_PLAYER = new Mp3Player("src/main/resources/Dj Power - Popcorn.mp3");
         initializeUI();
     }
 
@@ -49,9 +49,9 @@ public class GraphicsUserInterface extends JFrame { // Наследуем кла
                 }
         );
 
-        playButton.addActionListener(e -> mp3Player.play()); // Добавляем слушателя нажатий на кнопку "Play"
-        rewindButton.addActionListener(e -> mp3Player.stop()); // Добавляем слушателя нажатий на кнопку "REWIND"
-        stopButton.addActionListener(e -> mp3Player.stop()); // Добавляем слушателя нажатий на кнопку "Stop"
+        playButton.addActionListener(e -> MP3_PLAYER.play()); // Добавляем слушателя нажатий на кнопку "Play"
+        rewindButton.addActionListener(e -> MP3_PLAYER.stop()); // Добавляем слушателя нажатий на кнопку "REWIND"
+        stopButton.addActionListener(e -> MP3_PLAYER.stop()); // Добавляем слушателя нажатий на кнопку "Stop"
 
         JPanel jPanel = new JPanel();
         jPanel.add(playButton);
